@@ -269,17 +269,17 @@ stateDiagram-v2
 
 ---
 
-## 📊 HTTP Status Codes
+### 📌 HTTP Status Codes
 
-| Code | Meaning               |
-| ---- | --------------------- |
-| 200  | OK                    |
-| 201  | Created               |
-| 400  | Bad Request           |
-| 401  | Unauthorized          |
-| 403  | Forbidden             |
-| 404  | Not Found             |
-| 500  | Internal Server Error |
+| Code | Meaning               | Usage                                    |
+| ---- | --------------------- | ---------------------------------------- |
+| 200  | OK                    | Successful GET, PUT, DELETE              |
+| 201  | Created               | Successful POST (resource created)       |
+| 400  | Bad Request           | Validation errors, invalid input         |
+| 401  | Unauthorized          | Missing or invalid authentication token  |
+| 403  | Forbidden             | Valid token but insufficient permissions |
+| 404  | Not Found             | Requested resource does not exist        |
+| 500  | Internal Server Error | Unexpected server-side errors            |
 
 ---
 
