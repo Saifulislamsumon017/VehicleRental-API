@@ -88,5 +88,5 @@ vehicle browsing, booking processing, and efficient rental operation handling.
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/Saifulislamsumon017/Vehicle-Rental-API.git
+   git clone https://github.com/Saifulislamsumon017/VehicleRental-API.git
    ```

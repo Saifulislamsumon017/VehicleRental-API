@@ -1,27 +1,29 @@
-import { NextFunction, Request, Response } from 'express';
 import jwt, { JwtPayload } from 'jsonwebtoken';
+import { NextFunction, Request, Response } from 'express';
 import config from '../config';
 
 const auth = (...roles: string[]) => {
   return async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const header = req.headers.authorization;
-      if (!header || !header.startsWith('Bearer ')) {
-        return res
-          .status(401)
-          .json({ success: false, message: 'Authorization header missing' });
+      const token = req.headers.authorization;
+      if (!token) {
+        return res.status(401).json({
+          success: false,
+          message: 'You have no access to this route',
+        });
       }
-      const token = header.split(' ')[1];
+      const splitToken = token.split(' ')[1];
+      const verifiedToken = splitToken || token;
+
       const decoded = jwt.verify(
-        token,
-        config.jwtSecret as string
+        verifiedToken,
+        config.jwtSecret!
       ) as JwtPayload;
       req.user = decoded;
 
-      if (roles.length && !roles.includes(decoded.role as string)) {
+      if (roles.length && !roles.includes(decoded.role!)) {
         return res.status(403).json({ success: false, message: 'Forbidden' });
       }
-
       next();
     } catch (err: any) {
       res.status(401).json({
