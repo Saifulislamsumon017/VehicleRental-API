@@ -1,16 +1,34 @@
 import express, { Request, Response } from 'express';
 import initDB from './config/db';
+import cors from 'cors';
 
-const app = express();
+// routers
+import { authRoutes } from './modules/auth/auth.routes';
+import logger from './middleware/logger';
+// import usersRoutes from "./modules/users/users.routes";
+// import vehiclesRoutes from "./modules/vehicles/vehicles.routes";
+// import bookingsRoutes from "./modules/bookings/bookings.routes";
+
 // parser
 
+const app = express();
+app.use(cors());
 app.use(express.json());
+app.use(logger);
+
 // app.use(express.urlencoded());
 
 // initializing DB
 initDB();
 
-// "/" -> localhost:5000/
+// mount
+app.use('/api/v1/auth', authRoutes);
+// app.use("/api/v1/users", usersRoutes);
+// app.use("/api/v1/vehicles", vehiclesRoutes);
+// app.use("/api/v1/bookings", bookingsRoutes);
+
+// "/" -> http://localhost:5000
+
 app.get('/', (req: Request, res: Response) => {
   res.json({
     success: true,
