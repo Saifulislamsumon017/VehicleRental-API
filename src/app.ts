@@ -3,8 +3,8 @@ import initDB from './config/db';
 import cors from 'cors';
 
 // routers
-import { authRoutes } from './modules/auth/auth.routes';
 import logger from './middleware/logger';
+import { authRoutes } from './modules/auth/auth.routes';
 // import usersRoutes from "./modules/users/users.routes";
 // import vehiclesRoutes from "./modules/vehicles/vehicles.routes";
 // import bookingsRoutes from "./modules/bookings/bookings.routes";
@@ -29,7 +29,7 @@ app.use('/api/v1/auth', authRoutes);
 
 // "/" -> http://localhost:5000
 
-app.get('/', (req: Request, res: Response) => {
+app.get('/', logger, (req: Request, res: Response) => {
   res.json({
     success: true,
     message: 'Vehicle Rental API',

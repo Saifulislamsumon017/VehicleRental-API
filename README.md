@@ -4,7 +4,7 @@ A scalable backend system for vehicle rental management, providing features for
 vehicle browsing, booking processing, and efficient rental operation handling.
 
 🌐 **Live URL:**  
-👉 https://vehicle-rental-system-mu-ochre.vercel.app/
+👉
 
 ---
 
