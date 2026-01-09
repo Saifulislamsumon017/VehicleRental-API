@@ -1,7 +1,7 @@
 import bcrypt from 'bcryptjs';
 import { pool } from '../../config/db';
 
-// User Create
+// ServiceUserCreate
 
 const createUser = async (payload: Record<string, any>) => {
   const { name, email, password, phone, role = 'customer' } = payload;
@@ -21,9 +21,9 @@ const createUser = async (payload: Record<string, any>) => {
   return result;
 };
 
-// Get AllUsers
+// ServiceGetAllUsers
 
-const getUser = async () => {
+const getAllUser = async () => {
   const result = await pool.query(
     `SELECT id,name,email,phone,role,created_at 
     FROM users`
@@ -32,9 +32,9 @@ const getUser = async () => {
   return result;
 };
 
-// Get SingleUser
+// ServiceGetSingleUser
 
-const getSingleuser = async (id: string) => {
+const getSingleUser = async (id: string) => {
   const result = await pool.query(
     `SELECT id,name,email,phone,role,created_at 
     FROM users 
@@ -45,7 +45,7 @@ const getSingleuser = async (id: string) => {
   return result;
 };
 
-// UpdateUser
+// ServiceUpdateUser
 
 const updateUser = async (name: string, email: string, id: string) => {
   const result = await pool.query(
@@ -59,7 +59,7 @@ const updateUser = async (name: string, email: string, id: string) => {
   return result;
 };
 
-// DeleteUser
+// ServiceDeleteUser
 
 const deleteUser = async (id: string) => {
   // check active bookings
@@ -91,8 +91,8 @@ const deleteUser = async (id: string) => {
 
 export const userServices = {
   createUser,
-  getUser,
-  getSingleuser,
+  getAllUser,
+  getSingleUser,
   updateUser,
   deleteUser,
 };
