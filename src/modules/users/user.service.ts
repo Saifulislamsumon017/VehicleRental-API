@@ -36,10 +36,10 @@ const getAllUser = async () => {
 
 const getSingleUser = async (id: string) => {
   const result = await pool.query(
-    `SELECT id,name,email,phone,role,created_at 
-    FROM users 
-    WHERE id =$1, 
-    [id]`
+    `SELECT id, name, email, phone, role, created_at
+     FROM users
+     WHERE id = $1`,
+    [id]
   );
 
   return result;
@@ -68,7 +68,7 @@ const deleteUser = async (id: string) => {
     `SELECT id 
     FROM bookings
     WHERE customer_id=$1
-    AND status="active"`,
+    AND status='active'`,
     [id]
   );
 
