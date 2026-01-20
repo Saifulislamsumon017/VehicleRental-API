@@ -6,7 +6,8 @@ import cors from 'cors';
 import logger from './middleware/logger';
 import { authRoutes } from './modules/auth/auth.routes';
 import { usersRoutes } from './modules/users/user.routes';
-// import usersRoutes from "./modules/users/users.routes";
+import { vehiclesRoutes } from './modules/vehicles/vehicle.routes';
+
 // import vehiclesRoutes from "./modules/vehicles/vehicles.routes";
 // import bookingsRoutes from "./modules/bookings/bookings.routes";
 
@@ -25,7 +26,7 @@ initDB();
 // mount
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/users', usersRoutes);
-// app.use("/api/v1/vehicles", vehiclesRoutes);
+app.use('/api/v1/vehicles', vehiclesRoutes);
 // app.use("/api/v1/bookings", bookingsRoutes);
 
 // "/" -> http://localhost:5000
