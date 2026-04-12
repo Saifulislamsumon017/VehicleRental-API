@@ -14,7 +14,7 @@ const createVehicle = async (req: Request, res: Response) => {
   }
 };
 
-const getVehicles = async (_req: Request, res: Response) => {
+const getAllVehicles = async (_req: Request, res: Response) => {
   try {
     const result = await vehicleServices.getVehicles();
     res.status(200).json({ success: true, data: result.rows });
@@ -23,7 +23,7 @@ const getVehicles = async (_req: Request, res: Response) => {
   }
 };
 
-const getVehicle = async (req: Request, res: Response) => {
+const getVehicleById = async (req: Request, res: Response) => {
   try {
     const result = await vehicleServices.getVehicleById(
       req.params.vehicleId as string,
@@ -73,8 +73,8 @@ const deleteVehicle = async (req: Request, res: Response) => {
 
 export const vehicleControllers = {
   createVehicle,
-  getVehicles,
-  getVehicle,
+  getAllVehicles,
+  getVehicleById,
   updateVehicle,
   deleteVehicle,
 };

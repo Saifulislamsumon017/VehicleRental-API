@@ -11,6 +11,7 @@ router.post('/', auth('admin', 'customer'), bookingControllers.createBooking);
 router.get('/', auth('admin', 'customer'), bookingControllers.getBookings);
 
 // PUT /api/v1/bookings/:bookingId (customer cancel OR admin mark returned)
+
 router.put(
   '/:bookingId',
   auth('admin', 'customer'),

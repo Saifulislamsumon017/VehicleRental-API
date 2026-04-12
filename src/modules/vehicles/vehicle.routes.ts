@@ -8,8 +8,8 @@ const router = Router();
 router.post('/', auth('admin'), vehicleControllers.createVehicle);
 
 // public
-router.get('/', vehicleControllers.getVehicles);
-router.get('/:vehicleId', vehicleControllers.getVehicle);
+router.get('/', vehicleControllers.getAllVehicles);
+router.get('/:vehicleId', vehicleControllers.getVehicleById);
 
 // admin only
 router.put('/:vehicleId', auth('admin'), vehicleControllers.updateVehicle);
