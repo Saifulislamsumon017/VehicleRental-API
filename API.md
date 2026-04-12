@@ -132,8 +132,8 @@ Authorization: Bearer <jwt_token>
     "id": 1,
     "vehicle_name": "Toyota Camry 2024",
     "type": "car",
-    "registration_number": "ABC-1234",
-    "daily_rent_price": 60,
+    "registration_number": "CAR-1001",
+    "daily_rent_price": 50,
     "availability_status": "available"
   }
 }
