@@ -15,4 +15,4 @@ router.get('/:vehicleId', vehicleControllers.getVehicle);
 router.put('/:vehicleId', auth('admin'), vehicleControllers.updateVehicle);
 router.delete('/:vehicleId', auth('admin'), vehicleControllers.deleteVehicle);
 
-export default router;
+export const vehiclesRoutes = router;
